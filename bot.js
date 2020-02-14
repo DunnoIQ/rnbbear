@@ -7,7 +7,7 @@ async function color () {
     forEachTimeout(colors, (color) => {
         client.guilds.forEach((guild) => {
                 if (!stop.includes(guild.id)) {
-                let role = guild.roles.find('name', 'Rainbow');
+                let role = guild.roles.find('name', 'R-rainbow');
                 if (role && role.editable) 
                     role.setColor(color);
             }  
@@ -24,8 +24,8 @@ client.on('guildCreate', (guild) => {
 client.on('message', (message) => {
     if (message.channel.type !== 'text') return;
      {
-        if (message.content === '::stop') {stop.push(message.guild.id); return message.channel.send('Готово');}
-        if (message.content === '::start') {stop.splice(stop.indexOf(message.guild.id),1); return message.channel.send('Готово');}
+        if (message.content === '::stop') {stop.push(message.guild.id); return message.channel.send('ok');}
+        if (message.content === '::start') {stop.splice(stop.indexOf(message.guild.id),1); return message.channel.send('ok');}
     }
 })
 client.login(process.env.TOKEN);
